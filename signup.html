@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: arial, sans-serif;
+            flex-direction: column;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #131313;
+            background-size: cover;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: rgb(255, 254, 254);
+            box-shadow: 0 8px 16px rgba(10, 10, 10);
+            border-radius: 8px;
+            text-align: center;
+            color: #ff8177;
+            margin-top: 20px;
+        }
+
+        .login-container h2{
+            color: #ff8177;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #0c0c0c;
+            box-shadow: 0 0 4px rgb(0, 0, 0);
+        }
+
+        
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff758c;
+            border: none;
+            border-radius: 4px;
+            color: #100;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #45a049;
+        }
+
+        .custom-button {
+            display: inline-block; /* Supaya tombol tampil seperti elemen kotak */
+            position: relative; /* Posisi relatif untuk pseudo-element */
+            background: linear-gradient(90deg, #ff758c, #ff7eb3); /* Gradasi warna */
+            color: white; /* Warna teks putih */
+            text-decoration: none; /* Hilangkan garis bawah */
+            border: none; /* Hilangkan border */
+            border-radius: 8px; /* Sudut membulat */
+            padding: 10px 40px 10px 20px; /* Padding dengan jarak lebih lebar di kanan */
+            font-size: 16px; /* Ukuran font */
+            font-weight: bold; /* Teks tebal */
+            cursor: pointer; /* Tampilkan pointer */
+            transition: all 0.3s ease; /* Animasi transisi */
+            text-align: center; /* Posisi teks */
+            margin-top: 10px;
+        }
+
+        .custom-button::after {
+            content: ''; /* Isi kosong untuk pseudo-element */
+            position: absolute; /* Posisi absolut untuk mengikuti parent */
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent; /* Segitiga bagian atas */
+            border-bottom: 20px solid transparent; /* Segitiga bagian bawah */
+            border-left: 20px solid #ff7eb3; /* Warna segitiga (panah) */
+            border-radius: 0 8px 8px 0; /* Membulatkan sudut panah */
+        }
+
+        .custom-button:hover {
+            opacity: 0.9; /* Efek hover */
+        }
+
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+.main {
+    background-color: #141414;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: #141414;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+} 
+
+.main__content h1 {
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main__content h2 {
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main__img--container {
+    text-align: center;
+}
+
+#main__img {
+    height: 80%;
+    width: 80%;
+}
+
+.main__btn {
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+.main__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main__btn:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4837ff;
+    transition: all 0.1s;
+    border-radius: 4px;
+}
+
+.main__btn:hover {
+    color: #fff;
+}
+
+.main__btn:hover:after {
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1 class="main__content--text">WELCOME TO</h1>
+                <h2>SIGN-UP PAGE</h2>
+                <button class="main__btn"><a href="#services-section">Get Started</a></button>
+            </div>
+            <div class="main__img--container">
+                <img src="pic7.svg" alt="pic" id="main__img">
+            </div>
+        </div>
+       </div>
+
+    <div class="login-container" id="services-section">
+        <h2>Menu Sign-Up</h2>
+        <form id="loginform" onsubmit="return validateLogin()">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" autocomplete="off" required>
+            </div>
+            <button type="submit" class="login-button">Sign-Up</button>
+        </form>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <script>
+        function validateLogin () {
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const errorMessage = document.getElementById("error-message");
+
+            errorMessage.textContent = "";
+
+            if (username  && password) {
+                window.location.href = "index.html";
+                return false;
+            } else {
+                errorMessage.textContent = "Harap masukkan username dan password yg valid!";
+            }
+            
+
+            return false;
+        }
+    </script>
+    
+</body>
+</html>
