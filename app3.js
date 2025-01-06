@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const navLinks = document.querySelectorAll('.navbar__links');
+    const menu = document.querySelector('#mobile-menu')
+const menuLinks = document.querySelector('.navbar__menu')
 
-    // Tambahkan event listener pada setiap link
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault(); // Mencegah aksi default (seperti reload)
-            const targetPage = link.getAttribute('href'); // Ambil nilai href
-            window.location.href = targetPage; // Arahkan pengguna ke halaman target
-        });
-    });
-});
+menu.addEventListener('click', function() {
+    menu.classList.toggle('is-active');
+    menuLinks.classList.toggle('active');
+})
+
+
+
+})  
